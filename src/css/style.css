@@ -2293,3 +2293,10 @@ height: 560px;
 
 
 
+
+/* Efeito de brilho permanente para o card ativo no carrossel 3D */
+.carousel-slide-3d.active-slide {
+  border-color: var(--purple) !important;
+  box-shadow: 0 0 15px var(--blue), 0 0 25px var(--purple) !important;
+}
+

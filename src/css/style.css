@@ -904,6 +904,11 @@ section { padding: 2rem 1.5rem }
   transition: all .3s;
 }
 
+.proj-card.active-slide {
+  border-color: var(--purple);
+  box-shadow: 0 0 15px var(--blue), 0 0 25px var(--purple) !important;
+}
+
 .proj-card:hover {
   border-color: var(--purple);
   box-shadow: 0 0 15px var(--blue), 0 0 25px var(--purple) !important;

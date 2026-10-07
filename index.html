@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Renan De Paula - Python & Django Developer | Portfólio Profissional">
+  <meta name="keywords" content="Python, Django, Developer, Back-End, Full Stack, São Paulo">
+
+  <!-- Open Graph: define como o link aparece ao ser compartilhado (WhatsApp, LinkedIn etc.) -->
+  <meta property="og:title" content="Renan De Paula | Desenvolvedor Full Stack">
+  <meta property="og:description" content="Desenvolvedor Full Stack com foco em Python, Django e desenvolvimento Web.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://renan-de-paula.github.io/portifolio/">
+  <meta property="og:image" content="https://renan-de-paula.github.io/portifolio/src/img/perfil_crop.png">
+
+  <title>Renan De Paula | Python & Django Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="src/css/style.css?v=2.7.1">
+</head>
+
+<body>
+
+  <!-- LOADING — aparece enquanto a página carrega (duração controlada no JS) -->
+  <div id="loading">
+    <div class="loader-logo">
+      <img src="src/img/logoR.png" alt="Logo"
+        style="max-width: 15vw; max-height: 15vh; width: auto; height: auto; object-fit: contain;">
+    </div>
+    <div class="loader-bar">
+      <div class="loader-fill"></div>
+    </div>
+    <p style="color:var(--muted);font-size:.8rem;letter-spacing:2px">CARREGANDO...</p>
+  </div>
+
+  <!-- CURSOR PERSONALIZADO — visível apenas em desktop; oculto automaticamente em touch -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAVBAR — fixa no topo; links de âncora para cada seção -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" style="display: flex; align-items: center;">
+        <img src="src/img/logoR.png" alt="Logo"
+          style="max-width: 15vw; max-height: 40px; width: auto; height: auto; object-fit: contain;">
+      </a>
+      <!--
+        COMO ADICIONAR UM NOVO LINK NA NAVBAR:
+        1. Copie uma linha <li> abaixo (ex: <li><a href="#nova-secao">Nova Seção</a></li>).
+        2. Altere o href para o ID da nova seção (deve começar com #).
+        3. Altere o texto visível entre as tags <a> e </a>.
+      -->
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#qualificacoes">Qualificações</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-btn" title="Alternar tema">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <!-- Hamburger: aparece apenas em mobile (≤900px) -->
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MENU MOBILE — overlay fullscreen; fecha ao clicar em qualquer link -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#sobre" onclick="closeMobile()">Sobre</a>
+    <a href="#stack" onclick="closeMobile()">Stack</a>
+    <a href="#projetos" onclick="closeMobile()">Projetos</a>
+    <a href="#experiencia" onclick="closeMobile()">Experiência</a>
+    <a href="#formacao" onclick="closeMobile()">Formação</a>
+    <a href="#contato" onclick="closeMobile()">Contato</a>
+  </div>
+
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="grid-lines"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+
+          <!-- Badge de disponibilidade — altere o texto aqui se mudar de status -->
+          <div class="hero-badge"><span></span> Disponível para oportunidades</div>
+
+          <h1 class="hero-name">Renan<br>De Paula</h1>
+
+          <!-- Texto animado de digitação — edite as frases no array "phrases" no JS -->
+          <div class="hero-typed">
+            <span id="typed-text"></span><span class="typed-cursor" style="color:var(--blue)">|</span>
+          </div>
+
+          <p class="hero-desc">
+            Desenvolvedor Full Stack com foco em Python, Django e tecnologias Web (Front-End e Back-End). Apaixonado por
+            tecnologia,
+            resolução de problemas e construção de soluções robustas e escaláveis.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#projetos" class="btn-primary"><i class="fas fa-code"></i> Ver Projetos</a>
+
+            <!--
+            Botão de download do currículo.
+            Para atualizar o CV: suba o novo PDF no Google Drive, compartilhe como "qualquer pessoa
+            com o link" e substitua o ID abaixo (trecho após "id=") pelo ID do novo arquivo.
+          -->
+            <a href="https://drive.google.com/uc?export=download&id=1gSs-nQi_m79UpIY4rTrmeHF3RhvqOJST"
+              class="btn-outline" target="_blank" rel="noopener noreferrer" title="Baixar Currículo em PDF">
+              <i class="fas fa-download"></i> Baixar PDF
+            </a>
+
+            <!-- Links de redes sociais -->
+            <a href="https://github.com/Renan-De-Paula" target="_blank" class="social-icon" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/renan-de-paula-7ba232158/" target="_blank" class="social-icon"
+              title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ads.renandepaula@gmail.com&su=Contato%20via%20Portfólio&body=Oi%20Renan,%20tudo%20bem?%0A%0AVim%20pelo%20seu%20portfólio!"
+              target="_blank" class="social-icon" title="Enviar E-mail">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5511937539358&text=Oi%20Renan,%20tudo%20bem?%20Vim%20pelo%20seu%20portfólio!"
+              target="_blank" class="social-icon" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- FOTO DE PERFIL + FLOAT CARDS -->
+        <div class="hero-visual">
+          <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <div class="avatar-ring2"></div>
+            <div class="avatar-circle">
+              <!-- Troque "perfil_crop.png" por outra imagem em src/img/ para mudar a foto -->
+              <img src="src/img/perfil_crop.png" alt="Renan De Paula" class="avatar-img">
+            </div>
+
+            <!-- Float Card 1 — posição: direita/topo. Edite ícone, label e valor abaixo -->
+            <div class="float-card float-card-1">
+              <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python" style="width:22px;height:22px">
+              <div>
+                <div style="font-size:.7rem;color:var(--muted)">Linguagem principal</div>
+                <div style="color:var(--text)">Python</div>
+              </div>
+            </div>
+
+            <!-- Float Card 2 — posição: esquerda/baixo. Edite ícone, label e valor abaixo -->
+            <div class="float-card float-card-2">
+              <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                alt="Django" style="width:22px;height:22px;filter:brightness(2) saturate(0.5)">
+              <div>
+                <div style="font-size:.7rem;color:var(--muted)">Framework</div>
+                <div style="color:var(--text)">Django</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== SOBRE MIM ===== -->
+    <section id="sobre" style="background:var(--bg2)">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- COLUNA ESQUERDA: texto + estatísticas -->
+          <div class="reveal-left">
+            <span class="section-tag">Sobre Mim</span>
+            <h2 class="section-title">Quem sou eu</h2>
+            <div class="section-line"></div>
+            <div class="about-text">
+              <p>Olá! Sou <strong>Renan De Paula</strong>, desenvolvedor com foco em
+                <strong>Python, Django e Full Stack</strong>. Tenho
+                <!-- Idade calculada automaticamente pelo JS com base na data de nascimento -->
+                <strong><span id="age-display">--</span> anos</strong>, sou apaixonado por tecnologia
+                e em resolver problemas complexos.
+              </p>
+              <p>Experiência prática com <strong>Lógica, APIs REST, Banco de Dados, e
+                  Git/GitHub</strong>, sempre em busca de evoluir.</p>
+            </div>
+          </div>
+
+          <!-- COLUNA DIREITA: grid de informações pessoais -->
+          <div class="reveal-right">
+            <div class="info-grid">
+              <div class="info-row"><i class="fas fa-map-marker-alt"></i><span>Localização</span><strong>São Paulo –
+                  SP</strong></div>
+              <div class="info-row"><i class="fas fa-heart"></i><span>Estado Civil</span><strong>Casado</strong></div>
+              <div class="info-row"><i class="fas fa-graduation-cap"></i><span>Formação</span><strong>ADS – SENAC
+                  (2025)</strong></div>
+              <div class="info-row"><i class="fas fa-book-open"></i><span>Cursando</span><strong>T.I. – UNIVESP
+                  (2028)</strong></div>
+              <div class="info-row"><i class="fas fa-shield-alt"></i><span>Cursando MBA</span><strong>Cibersegurança –
+                  Anhanguera (2027)</strong></div>
+              <div class="info-row">
+                <i class="fas fa-envelope"></i>
+                <span>E-mail</span>
+                <strong>
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ads.renandepaula@gmail.com&su=Contato%20via%20Portfólio&body=Oi%20Renan,%20tudo%20bem?%0A%0AVim%20pelo%20seu%20portfólio!"
+                    target="_blank" title="Enviar E-mail"
+                    style="color:var(--blue);text-decoration:none;font-size:.8rem">
+                    ads.renandepaula@gmail.com
+                  </a>
+                </strong>
+              </div>
+              <div class="info-row"><i class="fab fa-whatsapp"></i><span>WhatsApp</span><strong><a
+                    href="https://api.whatsapp.com/send?phone=5511937539358&text=Oi%20Renan,%20tudo%20bem?%20Vim%20pelo%20seu%20portfólio!"
+                    target="_blank" title="WhatsApp">
+                    (11) 93753-9358</a></strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== STACK TECNOLÓGICA & FORMAÇÃO ===== -->
+    <section id="qualificacoes" style="background:var(--bg)">
+      <div class="container">
+        <div class="stack-edu-grid">
+          <!-- Coluna 1: Progressão Técnica -->
+          <div class="stack-column">
+
+            <div class="reveal" style="text-align:center;margin-bottom:3rem">
+              <span class="section-tag">Competências</span>
+              <h2 class="section-title">Progressão Técnica</h2>
+              <div class="section-line" style="margin:0 auto 0"></div>
+            </div>
+
+            <div class="skills-container reveal">
+              <!--
+                COMO ADICIONAR UMA NOVA HABILIDADE (SKILL):
+                1. Escolha a categoria (Back-End, Front-End, Ferramentas) ou crie uma nova <div class="skills-card">.
+                2. Copie um bloco <div class="skill-item"> inteiro.
+                3. Troque o ícone (tag <img>) ou o texto dentro da <div class="skill-info">.
+                4. Ajuste a porcentagem na barra de progresso alterando o valor em data-level="X" (ex: 88).
+                5. Atualize o texto da porcentagem no final do bloco (ex: <span class="skill-percent">88%</span>).
+              -->
+              <!-- Back-End & Lógica -->
+              <div class="skills-card">
+                <h3 class="skills-card-title">Back-End &amp; Lógica</h3>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
+                      class="skill-icon">
+                    <span class="skill-name">Python</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="75"></div>
+                  </div>
+                  <span class="skill-percent">75%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                      alt="Django" style="filter:brightness(3)" class="skill-icon">
+                    <span class="skill-name">Django</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="50"></div>
+                  </div>
+                  <span class="skill-percent">50%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                      alt="Java" class="skill-icon">
+                    <span class="skill-name">Java</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="65"></div>
+                  </div>
+                  <span class="skill-percent">65%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                      class="skill-icon">
+                    <span class="skill-name">MySQL</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="50"></div>
+                  </div>
+                  <span class="skill-percent">50%</span>
+                </div>
+              </div>
+
+              <!-- Front-End -->
+              <div class="skills-card">
+                <h3 class="skills-card-title">Front-End</h3>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <div
+                      style="background:#f7df1e; color:#000; font-size:12px; font-weight:bold; width:20px; height:20px; display:flex; align-items:center; justify-content:center; border-radius:3px;">
+                      JS</div>
+                    <span class="skill-name">JavaScript</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="70"></div>
+                  </div>
+                  <span class="skill-percent">70%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+                      class="skill-icon">
+                    <span class="skill-name">HTML5</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="85"></div>
+                  </div>
+                  <span class="skill-percent">85%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                      alt="CSS3" class="skill-icon">
+                    <span class="skill-name">CSS3</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="78"></div>
+                  </div>
+                  <span class="skill-percent">78%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <div
+                      style="background:#563d7c; color:#fff; font-size:12px; font-weight:bold; width:20px; height:20px; display:flex; align-items:center; justify-content:center; border-radius:3px;">
+                      B</div>
+                    <span class="skill-name">Bootstrap</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="80"></div>
+                  </div>
+                  <span class="skill-percent">80%</span>
+                </div>
+              </div>
+
+              <!-- Ferramentas -->
+              <div class="skills-card">
+                <h3 class="skills-card-title">Ferramentas</h3>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                      alt="Git" class="skill-icon">
+                    <span class="skill-name">Git &amp; GitHub</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="75"></div>
+                  </div>
+                  <span class="skill-percent">75%</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <img loading="lazy" src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI"
+                      class="skill-icon">
+                    <span class="skill-name">Power BI</span>
+                  </div>
+                  <div class="skill-bar-container">
+                    <div class="tech-fill" data-level="55"></div>
+                  </div>
+                  <span class="skill-percent">55%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTAO SCI-FI CORE PARA ABRIR MAPA -->
+            <div
+              style="display: flex; flex-direction: column; align-items: center; margin-top: 3rem; margin-bottom: 2rem; text-align: center;">
+              <span
+                style="color: var(--blue); font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 25px; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Badges
+                & Certificações</span>
+              <button class="cartesian-core" style="position: relative; top: auto; left: auto; transform: none;"
+                onclick="openCartesianOverlay()" aria-label="Abrir Matriz">
+                <div class="core-ring core-ring-1"></div>
+                <div class="core-ring core-ring-2"></div>
+                <div class="core-ring core-ring-3"></div>
+                <div class="core-inner"><i class="fas fa-cube"></i></div>
+                <div class="core-pulse"></div>
+              </button>
+            </div>
+
+          </div>
+          <!-- Coluna 2: Formação e Cursos -->
+          <div class="edu-column">
+
+            <div class="reveal" style="text-align:center;margin-bottom:3rem">
+              <span class="section-tag">Educação &amp; Certificações</span>
+              <h2 class="section-title">Formação<br>Acadêmica</h2>
+              <div class="section-line" style="margin:0 auto 0"></div>
+            </div>
+
+            <!--
+              COMO ADICIONAR UMA NOVA FORMAÇÃO ACADÊMICA:
+              1. Copie um bloco <div class="edu-card"...> inteiro abaixo.
+              2. Altere os parâmetros na função onclick="openExpModal('Curso', 'Instituição', 'Ano', 'Descrição')" para os novos dados.
+              3. Altere o ícone em <div class="edu-icon"> (pode ser emoji ou imagem).
+              4. Atualize os textos visíveis no card: .edu-school (instituição), .edu-course (nome do curso) e .edu-year (ano/status).
+            -->
+            <!-- Graduações principais -->
+            <div class="formacao-grid reveal" style="margin-bottom:3rem">
+              <div class="edu-card"
+                onclick="openExpModal('Tecnologia da Informação', 'UNIVESP', '📅 Cursando – Conclusão 2027', 'Bacharelado em Tecnologia da Informação')">
+                <div class="edu-icon">
+                  <img src="src/img/logoUnivesp.png" alt="UNIVESP"
+                    style="width: 48px; height: 48px; object-fit: contain;">
+                </div>
+                <div>
+                  <div class="edu-school">UNIVESP</div>
+                  <div class="edu-course">Tecnologia da Informação</div>
+                  <div class="edu-year">📅 Cursando – Conclusão 2027</div>
+                </div>
+                <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver detalhes
+                </div>
+              </div>
+              <div class="edu-card"
+                onclick="openExpModal('MBA em Cibersegurança e Proteção de Dados', 'Anhanguera', '📅 Cursando – Conclusão 2027', 'MBA em Cibersegurança e Proteção de Dados')">
+                <div class="edu-icon">
+                  <img src="src/img/logoAnhanguera.png" alt="Anhanguera"
+                    style="width: 48px; height: 48px; object-fit: contain;">
+                </div>
+                <div>
+                  <div class="edu-school">Anhanguera</div>
+                  <div class="edu-course">MBA em Cibersegurança e Proteção de Dados</div>
+                  <div class="edu-year">📅 Cursando – Conclusão 2027</div>
+                </div>
+                <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver detalhes
+                </div>
+              </div>
+              <div class="edu-card"
+                onclick="openExpModal('Análise e Desenvolvimento de Sistemas', 'SENAC', '✅ – Conclusão 2025', 'Tecnólogo em Análise e Desenvolvimento de Sistemas')">
+                <div class="edu-icon">
+                  <img src="src/img/logoSenac.png" alt="SENAC" style="width: 48px; height: 48px; object-fit: contain;">
+                </div>
+                <div>
+                  <div class="edu-school">SENAC</div>
+                  <div class="edu-course">Análise e Desenvolvimento de Sistemas</div>
+                  <div class="edu-year">✅ – Conclusão 2025</div>
+                </div>
+                <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver detalhes
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="reveal" style="text-align:center;margin-bottom:2rem">
+              <h3 style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.5rem">
+                Cursos &amp; Certificados
+              </h3>
+              <p style="color:var(--muted);font-size:.875rem">Formação contínua em tecnologia</p>
+            </div>
+
+            <!--
+              COMO ADICIONAR UM NOVO CURSO/CERTIFICADO:
+              1. Dentro de <div class="courses-grid">, copie um bloco <div class="edu-card"...> inteiro.
+              2. Altere os parâmetros na função onclick="openExpModal('Curso', 'Instituição', 'Status', 'Descrição')" para os novos dados do curso.
+              3. Altere o .edu-icon (pode ser emoji ou <img>).
+              4. Atualize os textos visíveis no card: .edu-school, .edu-course e .edu-year.
+              Nota: Se a grade encher muito, os itens irão fluir, mas se precisar de um novo "slide", copie um bloco <div class="carousel-slide courses-slide"> inteiro.
+            -->
+            <div class="carousel-wrapper reveal">
+              <button class="carousel-btn carousel-prev" id="courses-prev" aria-label="Cursos anteriores">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="carousel-viewport" id="courses-viewport">
+                <div class="carousel-track" id="courses-track">
+                  <div class="carousel-slide courses-slide">
+                    <div class="courses-grid">
+                      <div class="edu-card"
+                        onclick="openExpModal('Python com Framework', 'SENAI', 'Concluído ✅', 'Neste curso, aprofundamos no desenvolvimento utilizando a linguagem Python aliada a frameworks modernos, criando APIs, automações e integrações complexas de forma eficiente e estruturada.')">
+                        <div class="edu-icon"><img loading="lazy"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                            alt="Python" style="width:28px"></div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Python com Framework</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Aplicações em IA com Google Antigravity', 'SENAI', 'Concluído ✅', 'Exploração prática das tecnologias do Google Antigravity, focando na construção, treinamento e implementação de modelos de Inteligência Artificial para resolução de problemas reais.')">
+                        <div class="edu-icon">🤖</div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Aplicações em IA com Google Antigravity</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Power BI', 'SENAI', 'Concluído ✅', 'Treinamento completo na ferramenta Microsoft Power BI, cobrindo desde a modelagem e tratamento de dados até a criação de dashboards dinâmicos e relatórios gerenciais.')">
+                        <div class="edu-icon">📊</div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Power BI</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Programação Python', 'SENAI', 'Concluído ✅', 'Curso fundamental sobre Python, abordando estruturas de dados, lógica de programação, orientação a objetos e boas práticas no desenvolvimento de software.')">
+                        <div class="edu-icon"><img loading="lazy"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                            alt="Python" style="width:28px"></div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Programação Python</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Programação Java', 'SENAI', 'Concluído ✅', 'Base forte na linguagem Java, entendendo os pilares da POO, manipulação de coleções, tratamento de exceções e introdução ao desenvolvimento back-end.')">
+                        <div class="edu-icon"><img loading="lazy"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                            style="width:28px"></div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Programação Java</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Lógica de Programação', 'SENAI', 'Concluído ✅', 'Estudo essencial de algoritmos, fluxogramas, tipos de variáveis e estruturas de repetição, formando a base analítica necessária para aprender qualquer linguagem.')">
+                        <div class="edu-icon">🧠</div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Lógica de Programação</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Conceitos de IA', 'SENAI', 'Concluído ✅', 'Introdução ao ecossistema de Inteligência Artificial, abrangendo a história, os conceitos de Machine Learning, Deep Learning e as aplicações cotidianas dessa tecnologia.')">
+                        <div class="edu-icon">💡</div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Conceitos de IA</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('JavaScript Básico', 'IFMG', 'Concluído ✅', 'Aprendizado das bases do JavaScript para web, incluindo manipulação de DOM, eventos, funções e lógica para transformar páginas HTML estáticas em interfaces interativas.')">
+                        <div class="edu-icon"><img loading="lazy"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                            alt="JS" style="width:28px"></div>
+                        <div>
+                          <div class="edu-school">IFMG</div>
+                          <div class="edu-course">JavaScript Básico</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Segundo slide -->
+                  <div class="carousel-slide courses-slide">
+                    <div class="courses-grid">
+                      <div class="edu-card"
+                        onclick="openExpModal('HTML Avançado', 'Fund. Bradesco', 'Concluído ✅', 'Formação avançada em HTML5.')">
+                        <div class="edu-icon"><img loading="lazy"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"
+                            style="width:28px"></div>
+                        <div>
+                          <div class="edu-school">Fund. Bradesco</div>
+                          <div class="edu-course">HTML Avançado</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+
+                      <div class="edu-card"
+                        onclick="openExpModal('Git e GitHub', 'DIO', 'Concluído ✅', 'Versionamento de código.')">
+                        <div class="edu-icon"><img loading="lazy"
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"
+                            style="width:28px"></div>
+                        <div>
+                          <div class="edu-school">DIO</div>
+                          <div class="edu-course">Git e GitHub</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+                      <div class="edu-card"
+                        onclick="openExpModal('Introdução à Cibersegurança', 'Cisco Networking Academy', 'Concluído ✅', 'Fundamentos de segurança e proteção na web.')">
+                        <div class="edu-icon">🛡️</div>
+                        <div>
+                          <div class="edu-school">Cisco Networking Academy</div>
+                          <div class="edu-course">Introdução à Cibersegurança</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+                      <div class="edu-card"
+                        onclick="openExpModal('Privacidade e Proteção de Dados (LGPD)', 'SENAI', 'Concluído ✅', 'Leis de proteção e práticas.')">
+                        <div class="edu-icon">🔒</div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Privacidade e Proteção de Dados (LGPD)</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+                      <div class="edu-card"
+                        onclick="openExpModal('Segurança Cibernética', 'SENAI', 'Concluído ✅', 'Técnicas de segurança ofensiva e defensiva.')">
+                        <div class="edu-icon">🔐</div>
+                        <div>
+                          <div class="edu-school">SENAI</div>
+                          <div class="edu-course">Segurança Cibernética</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+                      <div class="edu-card"
+                        onclick="openExpModal('Fundamentos de Inteligência Artificial', 'IBM', 'Concluído ✅', 'Fundamentos pela IBM.')">
+                        <div class="edu-icon">🤖</div>
+                        <div>
+                          <div class="edu-school">IBM</div>
+                          <div class="edu-course">Fundamentos de Inteligência Artificial</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+                      <div class="edu-card"
+                        onclick="openExpModal('Inteligência Artificial p/ Vendas', 'DIO', 'Concluído ✅', 'Como a IA pode aumentar taxas de conversão e fidelizar clientes através de dados preditivos.')">
+                        <div class="edu-icon">💼</div>
+                        <div>
+                          <div class="edu-school">DIO</div>
+                          <div class="edu-course">Inteligência Artificial p/ Vendas</div>
+                          <div class="edu-year">Concluído ✅</div>
+                        </div>
+                        <div class="exp-click-hint" style="margin-top:auto;"><i class="fas fa-search-plus"></i> Ver
+                          detalhes</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-btn carousel-next" id="courses-next" aria-label="Próximos cursos">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="carousel-dots" id="courses-dots"
+              style="justify-content:center; display:flex; gap:8px; margin-top:20px;"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CARTESIAN BADGE MAP (OVERLAY) ===== -->
+    <section id="cartesian-badges"
+      onclick="if(event.target.id === 'cartesian-badges' || event.target.id === 'cartesian-map') closeCartesianOverlay()"
+      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: rgba(2, 6, 23, 0.15); display: none; opacity: 0; transition: opacity 0.6s ease; backdrop-filter: blur(8px);">
+
+      <!-- Botão Fechar -->
+      <button onclick="closeCartesianOverlay()"
+        style="position: absolute; top: 20px; right: 30px; background: transparent; border: none; color: var(--blue); font-size: 2rem; cursor: pointer; z-index: 10000;">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="cartesian-container" id="cartesian-map"
+        style="width: 100%; height: 100%; max-width: none; border-radius: 0; border: none; box-shadow: none;">
+        <!-- Eixos X e Y -->
+        <div class="cartesian-axis-x"></div>
+        <div class="cartesian-axis-y"></div>
+
+        <!-- Rótulos dos Quadrantes -->
+        <div class="quadrant-label q1-label"><i class="fas fa-brain"></i> I.A e Dados</div>
+        <div class="quadrant-label q2-label"><i class="fas fa-desktop"></i> Front-end</div>
+        <div class="quadrant-label q3-label"><i class="fas fa-shield-alt"></i> Cybersegurança</div>
+        <div class="quadrant-label q4-label"><i class="fas fa-server"></i> Back-end</div>
+
+        <!-- Camada de Conexões (SVG) -->
+        <svg id="connections-layer"
+          style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2;"></svg>
+
+        <!-- Container dinâmico das badges -->
+        <div id="badges-layer" style="z-index: 3;"></div>
+      </div>
+    </section>
+
+
+    <!-- ===== PROJETOS ===== -->
+    <section id="projetos" style="background:var(--bg)">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:3rem">
+          <span class="section-tag">Projetos em Destaque</span>
+          <h2 class="section-title">Alguns dos meus trabalhos</h2>
+          <div class="section-line" style="margin:0 auto 0"></div>
+        </div>
+
+        <!--
+          COMO ADICIONAR UM NOVO PROJETO:
+          1. Copie um bloco inteiro que começa com <div class="proj-card carousel-slide"> até o fechamento </div> correspondente.
+          2. Cole logo após um dos projetos existentes, mas DENTRO da <div class="carousel-track" id="carousel-track">.
+          3. Altere a imagem de capa em <img src="..." class="proj-cover-img">.
+          4. Altere as tecnologias visíveis sobre a imagem na div <div class="proj-techs">.
+          5. Atualize as tags em <div class="proj-tags"> (adicionando ou removendo <span class="tag">).
+          6. Modifique o título em <div class="proj-title"> e a descrição em <p class="proj-desc">.
+          7. Atualize os links em <div class="proj-links"> (href do GitHub e do Live Demo, se houver).
+          Nota: Os 'dots' na parte inferior e a navegação serão gerados automaticamente pelo JavaScript.
+        -->
+        <div class="carousel-wrapper reveal">
+
+          <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Projeto anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="carousel-viewport" id="carousel-viewport">
+            <div class="carousel-track" id="carousel-track">
+              <!-- PROJETO 1 — Forno & Afeto -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#0d1f3c,#1a1040)">
+                  <img loading="lazy" src="src/img/projetos/fornoAfetoPedidos.png" alt="Forno & Afeto"
+                    class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                      alt="Django" style="filter:brightness(3)">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">Python</span><span class="tag">Django</span>
+                    <span class="tag">SQLite</span><span class="tag">UNIVESP</span>
+                  </div>
+                  <div class="proj-title">Forno &amp; Afeto – PDV UNIVESP</div>
+                  <p class="proj-desc">Sistema de gestão (PDV) para confeitaria artesanal desenvolvido como Projeto
+                    Integrador da UNIVESP. Gerenciamento de pedidos, clientes, produtos e financeiro com Django e
+                    SQLite.
+                  </p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/Projeto_integrador_1_Univesp" target="_blank"
+                      class="proj-link gh"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://renan-de-paula.github.io/Projeto_integrador_1_Univesp/" target="_blank"
+                      class="proj-link demo" style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live
+                      Demo</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 2 — Show do Milhão -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#1a0c00,#3d2600)">
+                  <img loading="lazy" src="src/img/projetos/showmilhao.png" alt="Show do Milhão" class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                      alt="Java">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="Maven">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">Java 17</span><span class="tag">JavaFX</span>
+                    <span class="tag">Maven</span><span class="tag">Quiz</span>
+                  </div>
+                  <div class="proj-title">Show do Milhão Acadêmico</div>
+                  <p class="proj-desc">Jogo de quiz interativo inspirado no Show do Milhão, desenvolvido em Java com
+                    JavaFX. Interface gráfica moderna, efeitos sonoros, seleção de temas, ajuda dos universitários e
+                    perguntas via JSON.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/Show_Do_Milhao_Academico" target="_blank"
+                      class="proj-link gh"><i class="fab fa-github"></i> GitHub</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 3 — Pantheon Fighters -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#1a0533,#3d0a0a)">
+                  <img loading="lazy" src="src/img/projetos/pantheonfighters.png" alt="Pantheon Fighters"
+                    class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    <span class="pygame-badge" title="Pygame">PG</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">Python 3.11</span><span class="tag">Pygame</span>
+                    <span class="tag">POO</span><span class="tag">SENAI</span>
+                  </div>
+                  <div class="proj-title">Pantheon Fighters</div>
+                  <p class="proj-desc">Jogo de luta 2D inspirado em Street Fighter, desenvolvido em Python com Pygame.
+                    Projeto final do curso de Programação Python no SENAI, com animações frame-by-frame, seleção de
+                    personagens e game loop estruturado.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/Pantheon-Fighters" target="_blank"
+                      class="proj-link gh"><i class="fab fa-github"></i> GitHub</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 4 — VacinAPP -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#0c1e35,#1a0c2e)">
+                  <img loading="lazy" src="src/img/projetos/vacinApp.png" alt="VacinAPP" class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                      alt="Java">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                      alt="Spring Boot">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">Java 17</span><span class="tag">Spring Boot</span>
+                    <span class="tag">MySQL</span><span class="tag">SENAC</span>
+                  </div>
+                  <div class="proj-title">VacinAPP – PI 5º Semestre</div>
+                  <p class="proj-desc">Aplicação web para controle e agendamento de vacinação. Projeto integrador do 5º
+                    semestre do SENAC, com back-end em Java/Spring Boot, banco MySQL e front-end em HTML, CSS e
+                    JavaScript.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/PI-Quinto-semestre-VacinAPP" target="_blank"
+                      class="proj-link gh"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://renan-de-paula.github.io/PI-Quinto-semestre-VacinAPP/" target="_blank"
+                      class="proj-link demo" style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live
+                      Demo</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 5 — Grind Culture -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#111111,#333333)">
+                  <img loading="lazy" src="src/img/projetos/grind-Culture.png" alt="Grind Culture"
+                    class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                      alt="CSS3">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                      alt="JavaScript">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span>
+                    <span class="tag">Vanilla JS</span><span class="tag">E-commerce</span>
+                  </div>
+                  <div class="proj-title">Grind Culture – Skateshop</div>
+                  <p class="proj-desc">Site institucional e loja virtual desenvolvido com HTML semântico, CSS3 e
+                    JavaScript puro. Conta com carrinho de compras, checkout, cálculo de frete e integração com a API
+                    ViaCEP.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/Grind-Culture" target="_blank" class="proj-link gh"><i
+                        class="fab fa-github"></i> GitHub</a>
+                    <a href="https://grind-culture.web.app/" target="_blank" class="proj-link demo"
+                      style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 6 — Touch Screen Test -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#0c1e35,#1a0c2e)">
+                  <img loading="lazy" src="src/img/projetos/touchScreen.png" alt="Touch Screen Test"
+                    class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                      alt="CSS3">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                      alt="JavaScript">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span>
+                    <span class="tag">Vanilla JS</span><span class="tag">Interativo</span>
+                  </div>
+                  <div class="proj-title">Teste de Touch Screen</div>
+                  <p class="proj-desc">Projeto interativo desenvolvido para testar eventos de touch screen em
+                    dispositivos móveis, utilizando HTML, CSS e JavaScript puro para capturar e mapear toques na tela.
+                  </p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/touchScreen_Test" target="_blank" class="proj-link gh"><i
+                        class="fab fa-github"></i> GitHub</a>
+                    <a href="https://renan-de-paula.github.io/touchScreen_Test/" target="_blank" class="proj-link demo"
+                      style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 7 — Ironforge -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#e31c25,#200000)">
+                  <img loading="lazy" src="src/img/projetos/ironforge.png" alt="Ironforge Fitness"
+                    class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                      alt="CSS3">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                      alt="JavaScript">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span><span class="tag">Landing Page</span>
+                  </div>
+                  <div class="proj-title">Ironforge Fitness</div>
+                  <p class="proj-desc">Landing page moderna e interativa para uma academia de alta performance,
+                    projetada para destacar estrutura e modalidades. Construída com foco em UI/UX, responsividade e
+                    conversão.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/IronForge" target="_blank" class="proj-link gh"><i
+                        class="fab fa-github"></i> GitHub</a>
+                    <a href="https://renan-de-paula.github.io/IronForge/#inicio" target="_blank" class="proj-link demo"
+                      style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live
+                      Demo</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 8 — Pokedex -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#c42a2a,#8a1a1a)">
+                  <img loading="lazy" src="src/img/projetos/pokedex.png" alt="Pokedex" class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                      alt="CSS3">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                      alt="JavaScript">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">HTML5</span><span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span><span class="tag">PokeAPI</span>
+                  </div>
+                  <div class="proj-title">Pokedex Interativa</div>
+                  <p class="proj-desc">Uma Pokedex interativa desenvolvida com HTML, CSS e JavaScript, consumindo a
+                    PokeAPI para listar e exibir detalhes dos Pokémon de forma dinâmica.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/pokedex" target="_blank" class="proj-link gh"><i
+                        class="fab fa-github"></i> GitHub</a>
+                    <a href="https://renan-de-paula.github.io/pokedex/" target="_blank" class="proj-link demo"
+                      style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /carousel-track -->
+          </div><!-- /carousel-viewport -->
+
+          <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Próximo projeto">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+        </div><!-- /carousel-wrapper -->
+
+        <!-- Dots gerados dinamicamente pelo JS -->
+        <div class="carousel-dots" id="carousel-dots"></div>
+
+        <div style="text-align:center;margin-top:2.5rem" class="reveal">
+          <a href="https://github.com/Renan-De-Paula" target="_blank" class="btn-primary">
+            <i class="fab fa-github"></i> Ver todos no GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== EXPERIÊNCIA ===== -->
+    <section id="experiencia">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:3rem">
+          <span class="section-tag">Trajetória Profissional</span>
+          <h2 class="section-title">Experiência</h2>
+          <div class="section-line" style="margin:0 auto 0"></div>
+        </div>
+
+        <!--
+          COMO ADICIONAR UMA NOVA EXPERIÊNCIA PROFISSIONAL:
+          1. Copie um bloco inteiro que começa com <div class="exp-card"...>.
+          2. Cole acima do primeiro item se for a experiência mais recente (ou onde se encaixar na ordem cronológica).
+          3. Altere os parâmetros da função onclick="openExpModal('Cargo', 'Empresa', 'Data', 'Descrição')" com os novos dados.
+          4. Atualize os textos visíveis no card: 
+             - .exp-date (período/data)
+             - .exp-role (cargo)
+             - .exp-company (empresa)
+        -->
+        <div class="cyber-timeline-wrapper reveal">
+  <div class="cyber-timeline collapsed" id="cyber-timeline">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item top">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Técnico de Informática', '738 AIC Desenvolvimento de Equipamentos LTDA', '05/2026 – ATUAL', 'Suporte técnico de TI, manutenção de sistemas e equipamentos, resolução de incidentes e otimização de infraestrutura tecnológica.')">
+        <div class="timeline-date">05/2026 – ATUAL</div>
+        <div class="timeline-role">Técnico de Informática</div>
+        <div class="timeline-company">738 AIC Desenvolvimento de Equipamentos LTDA</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item bottom">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Projetos Pessoais &amp; Freelance', 'Desenvolvimento de Software', '2023 – ATUAL', 'Desenvolvimento de projetos em Python, Django, HTML/CSS e JavaScript. Criação de APIs, sistemas web e aplicações CRUD com foco em aprendizado e evolução técnica.')">
+        <div class="timeline-date">2023 – ATUAL</div>
+        <div class="timeline-role">Projetos Pessoais &amp; Freelance</div>
+        <div class="timeline-company">Desenvolvimento de Software</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item top">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Auxiliar de Logística / Operações', 'iFood', '11/2024 – 06/2026', 'Gestão logística, controle de fluxo operacional, resolução de problemas e organização de processos. Desenvolveu forte capacidade analítica e trabalho sob pressão.')">
+        <div class="timeline-date">11/2024 – 06/2026</div>
+        <div class="timeline-role">Auxiliar de Logística / Operações</div>
+        <div class="timeline-company">iFood</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item bottom">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Conferente', 'MD Sucesso LTDA', '04/2024 – 11/2024', 'Atividades de conferência de mercadorias, organização de estoque e apoio operacional logístico.')">
+        <div class="timeline-date">04/2024 – 11/2024</div>
+        <div class="timeline-role">Conferente</div>
+        <div class="timeline-company">MD Sucesso LTDA</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item top">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Balconista', 'C H M Da Silva Jorge', '07/2022 – 06/2023', 'Atendimento ao público, organização do ambiente e controle de mercadorias.')">
+        <div class="timeline-date">07/2022 – 06/2023</div>
+        <div class="timeline-role">Balconista</div>
+        <div class="timeline-company">C H M Da Silva Jorge</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item bottom">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Ajudante Geral', 'Praxis Comércio e Representações Comerciais LTDA', '01/2022 – 04/2022', 'Apoio geral em operações de logística e estoque.')">
+        <div class="timeline-date">01/2022 – 04/2022</div>
+        <div class="timeline-role">Ajudante Geral</div>
+        <div class="timeline-company">Praxis Comércio e Representações Comerciais LTDA</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item top">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Estoquista', 'AME ECOMM Comércio Eletrônico LTDA', '04/2021 – 01/2022', 'Controle de entrada e saída de materiais, organização e armazenagem para e-commerce.')">
+        <div class="timeline-date">04/2021 – 01/2022</div>
+        <div class="timeline-role">Estoquista</div>
+        <div class="timeline-company">AME ECOMM Comércio Eletrônico LTDA</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-item bottom">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content" onclick="openExpModal('Ajudante', 'Praxis Comércio e Representações Comerciais LTDA', '03/2020 – 01/2021', 'Atividades operacionais e auxílio geral na organização de mercadorias.')">
+        <div class="timeline-date">03/2020 – 01/2021</div>
+        <div class="timeline-role">Ajudante</div>
+        <div class="timeline-company">Praxis Comércio e Representações Comerciais LTDA</div>
+        <span class="timeline-hint"><i class="fas fa-search-plus"></i> Ver detalhes</span>
+      </div>
+    </div>
+
+    <div class="timeline-expand-btn" onclick="expandTimeline()">
+      <div class="expand-circle">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="expand-text">Ver mais</div>
+    </div>
+  </div>
+</div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- ===== CONTATO ===== -->
+    <section id="contato">
+      <div class="container">
+        <div class="reveal" style="text-align:center;margin-bottom:3rem">
+          <span class="section-tag">Vamos Conversar</span>
+          <h2 class="section-title">Entre em Contato</h2>
+          <div class="section-line" style="margin:0 auto 0"></div>
+          <p style="color:var(--muted);max-width:520px;margin:1rem auto 0;font-size:.95rem">
+            Estou aberto a novas oportunidades, projetos freelance e colaborações.
+            Fique à vontade para entrar em contato!
+          </p>
+        </div>
+
+        <div class="contact-container reveal">
+          <!-- Formulário de Contato Direto -->
+          <form action="https://formspree.io/f/mljrabjo" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu E-mail" required>
+            <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;"><i
+                class="fas fa-paper-plane"></i> Enviar Mensagem</button>
+          </form>
+
+          <!--
+            COMO ADICIONAR UM NOVO MEIO DE CONTATO:
+            1. Copie um dos blocos de âncora inteiros (ex: <a href="..." class="contact-card"> ... </a>).
+            2. Altere o href para o link desejado.
+            3. Altere o ícone FontAwesome dentro de <div class="contact-icon"> e ajuste as cores em style="..." (background da div e color do i).
+            4. Modifique o nome em <div class="contact-label"> e o valor visível em <div class="contact-val">.
+          -->
+          <!-- Cards de contato -->
+          <div class="contact-grid">
+            <a href="https://github.com/Renan-De-Paula" target="_blank" class="contact-card">
+              <div class="contact-icon" style="background:rgba(255,255,255,.08)">
+                <i class="fab fa-github" style="font-size:1.5rem"></i>
+              </div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-val">github.com/Renan-De-Paula</div>
+            </a>
+            <a href="https://www.linkedin.com/in/renan-de-paula-7ba232158/" target="_blank" class="contact-card">
+              <div class="contact-icon" style="background:rgba(10,102,194,.15)">
+                <i class="fab fa-linkedin-in" style="color:#0a66c2;font-size:1.5rem"></i>
+              </div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-val">renan-de-paula</div>
+            </a>
+            <a href="mailto:ads.renandepaula@gmail.com" class="contact-card" title="Enviar E-mail">
+              <div class="contact-icon" style="background:rgba(56,189,248,.12)">
+                <i class="fas fa-envelope" style="color:var(--blue);font-size:1.5rem"></i>
+              </div>
+              <div class="contact-label">E-mail</div>
+              <div class="contact-val">ads.renandepaula@gmail.com</div>
+            </a>
+            <a href="https://wa.me/5511937539358?text=Oi%20Renan,%20tudo%20bem?%20Vim%20pelo%20seu%20portfólio!"
+              target="_blank" class="contact-card">
+              <div class="contact-icon" style="background:rgba(37,211,102,.12)">
+                <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.5rem"></i>
+              </div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-val">(11) 93753-9358</div>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">Renan De Paula</div>
+    <div class="footer-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#qualificacoes">Qualificações</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <!-- Ano preenchido automaticamente pelo JS -->
+    <p class="footer-copy">
+      © <span id="year"></span> Renan De Paula. Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <!-- Botão flutuante de voltar ao topo — aparece após rolar 400px -->
+  <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+
+  <script src="src/js/main.js" defer></script>
+
+  <!-- Experiencia Modal -->
+  <div id="exp-modal" class="exp-modal-overlay" onclick="closeExpModal(event)">
+    <div class="exp-modal-content">
+      <button class="exp-modal-close" onclick="closeExpModal(event)">&times;</button>
+      <div id="exp-modal-role" class="exp-modal-role"></div>
+      <div id="exp-modal-company" class="exp-modal-company"></div>
+      <div id="exp-modal-date" class="exp-modal-date"></div>
+      <p id="exp-modal-desc" class="exp-modal-desc"></p>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

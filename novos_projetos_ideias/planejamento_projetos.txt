@@ -1,0 +1,80 @@
+PLANEJAMENTO DE NOVOS PROJETOS PARA O PORTFOLIO
+
+Abaixo estão detalhadas as 3 ideias estratégicas de projetos para elevar o nível do seu portfólio, focando em suas habilidades com Python, Django e sua pós-graduação em Cibersegurança.
+
+================================================================================
+PROJETO 1: API RESTful com Django REST Framework (DRF) e Autenticação Segura
+================================================================================
+Conceito: 
+Desenvolver uma API (sem front-end acoplado) para um Sistema de Gestão de Tarefas Corporativas ou Gerenciamento de Finanças.
+
+Por que fazer? 
+O mercado busca desenvolvedores capazes de criar APIs robustas que possam ser consumidas por aplicações separadas (React, Vue, Mobile).
+
+Tecnologias Envolvidas:
+- Linguagem: Python
+- Framework: Django + Django REST Framework (DRF)
+- Banco de Dados: PostgreSQL
+- Autenticação: JWT (JSON Web Tokens)
+- Documentação: Swagger (usando drf-yasg ou drf-spectacular)
+
+Toque de Cibersegurança:
+- Implementar controle de acesso baseado em roles (RBAC - ex: Admin vs Usuário Comum).
+- Configurar Rate Limiting (limite de requisições por IP) para evitar ataques de força bruta.
+- Boas práticas de segurança do Django (proteção contra injeções e segurança de senhas).
+
+O que agrega: 
+Mostra que você domina arquitetura de APIs, autenticação moderna e sabe como criar serviços escaláveis.
+
+
+================================================================================
+PROJETO 2: Scanner Web de Vulnerabilidades (Integração Full Stack + Cibersegurança)
+================================================================================
+Conceito: 
+Uma aplicação web onde o usuário insere a URL de um site e o sistema gera um relatório de segurança básico, dando uma "nota" para o site.
+
+Por que fazer? 
+É o projeto perfeito para unir suas habilidades de Desenvolvedor Web com o seu MBA em Cibersegurança. Um nicho extremamente valorizado hoje em dia.
+
+O que o sistema faria:
+O back-end acessa o site fornecido e verifica:
+- Validade e detalhes do certificado SSL.
+- Presença de cabeçalhos de segurança HTTP (CORS, HSTS, X-Frame-Options).
+- (Opcional) Escaneamento de portas abertas básicas.
+
+Tecnologias Envolvidas:
+- Back-end: Python (Django ou FastAPI).
+- Bibliotecas Python: requests, ssl, socket.
+- Front-end: HTML, CSS, JS com um dashboard (usando Chart.js, por exemplo) para mostrar a nota do site de forma visual.
+
+O que agrega: 
+Comprova proatividade na sua área de especialização e mostra capacidade de construir ferramentas úteis do zero.
+
+
+================================================================================
+PROJETO 3: Pipeline de Dados e Dashboard Interativo (Python + Power BI/Web)
+================================================================================
+Conceito: 
+Um Web Scraper que coleta dados regularmente da internet, salva no banco e exibe as métricas em um painel interativo. (Exemplo: monitorar tendências de vagas de TI ou dados do mercado financeiro).
+
+Por que fazer? 
+Você possui Power BI nas suas competências. Mostrar a jornada do dado (extração, tratamento e visualização) é uma habilidade de "Business Intelligence" muito atraente.
+
+Tecnologias Envolvidas:
+- Extração (Web Scraping): Python + BeautifulSoup ou requests (consumindo alguma API pública).
+- Automação: Rotinas de background (ex: usar Celery e Redis) para buscar os dados diariamente.
+- Visualização: Conectar os dados a um Dashboard no Power BI ou criar um painel Web diretamente com Django + Chart.js.
+
+O que agrega: 
+Comprova habilidades em manipulação de dados, tarefas automatizadas em background e visualização de métricas (Dashboards).
+
+
+================================================================================
+DICA DE OURO: DEPLOY E INFRAESTRUTURA
+================================================================================
+Para qualquer um dos projetos acima que você escolher iniciar:
+1. Tente realizar o deploy do back-end em serviços Cloud (Render, Railway, AWS ou Heroku).
+2. Tente configurar e empacotar seu projeto usando Docker (criar um Dockerfile e um docker-compose.yml).
+* Ter a tag "Docker" ou "AWS" no seu currículo e portfólio eleva o seu perfil de um Júnior/Estagiário para um desenvolvedor Pleno/Júnior Avançado muito rapidamente.
+
+Boa sorte nos desenvolvimentos desta semana!

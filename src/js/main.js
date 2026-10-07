@@ -302,6 +302,12 @@
       btnPrev.addEventListener('click', () => { current--; rotateCarousel(); });
       btnNext.addEventListener('click', () => { current++; rotateCarousel(); });
 
+        let autoPlay = setInterval(() => { current++; rotateCarousel(); }, 3000);
+        viewport.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        viewport.addEventListener('mouseleave', () => autoPlay = setInterval(() => { current++; rotateCarousel(); }, 3000));
+        viewport.addEventListener('touchstart', () => clearInterval(autoPlay), {passive: true});
+        viewport.addEventListener('touchend', () => autoPlay = setInterval(() => { current++; rotateCarousel(); }, 3000));
+
       let startX = 0;
       let isDragging = false;
       viewport.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX; });

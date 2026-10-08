@@ -24,15 +24,14 @@
   <link rel="stylesheet" href="src/css/style.css?v=2?v=2.7.1">
 </head>
 
-<body>
+<body class="is-loading">
 
   <!-- LOADING — aparece enquanto a página carrega (duração controlada no JS) -->
   <div id="loading">
-    <div class="loader-logo">
-      <img src="src/img/logoR.png" alt="Logo"
-        style="max-width: 15vw; max-height: 15vh; width: auto; height: auto; object-fit: contain;">
-    </div>
-    <div class="loader-bar">
+    <div class="loader-logo electric-svg-wrapper" data-electric-logo="src/img/logoR.png">
+  <img src="src/img/logoR.png" alt="Logo" style="max-width:15vw;max-height:15vh;width:auto;height:auto;object-fit:contain;display:block;">
+</div>
+<div class="loader-bar">
       <div class="loader-fill"></div>
     </div>
     <p style="color:var(--muted);font-size:.8rem;letter-spacing:2px">CARREGANDO...</p>
@@ -45,10 +44,9 @@
   <!-- NAVBAR — fixa no topo; links de âncora para cada seção -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" style="display: flex; align-items: center;">
-        <img src="src/img/logoR.png" alt="Logo"
-          style="max-width: 15vw; max-height: 40px; width: auto; height: auto; object-fit: contain;">
-      </a>
+      <a href="#hero" class="nav-logo electric-svg-wrapper" data-electric-logo="src/img/logoR.png">
+  <img src="src/img/logoR.png" alt="Logo" style="max-width:15vw;max-height:40px;width:auto;height:auto;object-fit:contain;display:block;">
+</a>
       <!--
         COMO ADICIONAR UM NOVO LINK NA NAVBAR:
         1. Copie uma linha <li> abaixo (ex: <li><a href="#nova-secao">Nova Seção</a></li>).
@@ -120,7 +118,10 @@
               <i class="fas fa-download"></i> Baixar PDF
             </a>
 
-            <!-- Links de redes sociais -->
+            </div>
+
+          <!-- Links de redes sociais -->
+          <div class="hero-socials">
             <a href="https://github.com/Renan-De-Paula" target="_blank" class="social-icon" title="GitHub">
               <i class="fab fa-github"></i>
             </a>
@@ -175,7 +176,7 @@
 
 
     <!-- ===== SOBRE MIM ===== -->
-    <section id="sobre" style="background:var(--bg2)">
+    <section id="sobre">
       <div class="container">
         <div class="about-grid">
 
@@ -233,7 +234,7 @@
 
 
     <!-- ===== STACK TECNOLÓGICA & FORMAÇÃO ===== -->
-    <section id="qualificacoes" style="background:var(--bg)">
+    <section id="qualificacoes">
       <div class="container">
         <div class="stack-edu-grid">
           <!-- Coluna 1: Progressão Técnica -->
@@ -738,7 +739,7 @@
 
 
     <!-- ===== PROJETOS ===== -->
-    <section id="projetos" style="background:var(--bg)">
+    <section id="projetos">
       <div class="container">
         <div class="reveal" style="text-align:center;margin-bottom:3rem">
           <span class="section-tag">Projetos em Destaque</span>
@@ -1009,6 +1010,26 @@
                   </div>
                 </div>
               </div>
+              <!-- PROJETO 9 — Metal Zombie -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#3a3a3a,#1c1c1c)">
+                  <img loading="lazy" src="src/img/projetos/MetalZombie.png" alt="Metal Zombie" class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">Java</span><span class="tag">Game</span>
+                    <span class="tag">Arcade</span>
+                  </div>
+                  <div class="proj-title">Metal Zombie</div>
+                  <p class="proj-desc">Um jogo run-and-gun 2D de sobrevivência zumbi com combate frenético e estilo arcade.</p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/MetalZombie" target="_blank" class="proj-link gh"><i class="fab fa-github"></i> GitHub</a>
+                  </div>
+                </div>
+              </div>
             </div><!-- /carousel-track -->
           </div><!-- /carousel-viewport -->
 
@@ -1259,3 +1280,13 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
     // Oculta a tela de loading 2 segundos após o load completo da página.
     // Para aumentar/diminuir o tempo, altere o valor "2000" (em milissegundos).
     window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('loading').classList.add('hidden'), 2000);
+      setTimeout(() => { document.getElementById('loading').classList.add('hidden'); document.body.classList.remove('is-loading'); }, 2000);
     });
 
     // ─── CURSOR PERSONALIZADO ─────────────────────────────────────────────────
@@ -563,3 +563,75 @@ function expandTimeline() {
     timeline.classList.remove('collapsed');
   }
 }
+
+// === TERMINAL RAIN EFFECT ===
+(function() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'terminal-rain';
+  Object.assign(canvas.style, {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100vw',
+    height: '100vh',
+    zIndex: '-2',
+    pointerEvents: 'none'
+  });
+  document.body.prepend(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let width, height;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()<>{}[]';
+  const fontSize = 16;
+  let columns = Math.floor(width / fontSize);
+  let drops = [];
+  for (let x = 0; x < columns; x++) {
+    drops[x] = Math.random() * -100; // start offscreen randomly
+  }
+
+  window.addEventListener('resize', () => {
+    columns = Math.floor(window.innerWidth / fontSize);
+    while (drops.length < columns) {
+      drops.push(Math.random() * -100);
+    }
+  });
+
+  function drawRain() {
+    // Check theme for trail background color
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    ctx.fillStyle = isLight ? 'rgba(240, 244, 255, 0.1)' : 'rgba(8, 12, 20, 0.1)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars.charAt(Math.floor(Math.random() * chars.length));
+      
+      // Use theme colors
+      if (Math.random() > 0.5) {
+        ctx.fillStyle = '#38bdf8'; // blue
+      } else {
+        ctx.fillStyle = '#8b5cf6'; // purple
+      }
+
+      // Draw char
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawRain, 40);
+})();
+

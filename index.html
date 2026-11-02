@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Renan De Paula - Python & Django Developer | Portfólio Profissional">
+  <meta name="description" content="Renan De Paula - Full Stack Developer | Portfólio Profissional">
   <meta name="keywords" content="Python, Django, Developer, Back-End, Full Stack, São Paulo">
 
   <!-- Open Graph: define como o link aparece ao ser compartilhado (WhatsApp, LinkedIn etc.) -->
@@ -14,7 +14,12 @@
   <meta property="og:url" content="https://renan-de-paula.github.io/portifolio/">
   <meta property="og:image" content="https://renan-de-paula.github.io/portifolio/src/img/perfil_crop.png">
 
-  <title>Renan De Paula | Python & Django Developer</title>
+    <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="src/img/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="src/img/logoR.svg">
+  <link rel="apple-touch-icon" href="src/img/favicon-192.png">
+
+  <title>Renan De Paula | Full Stack Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
@@ -403,11 +408,11 @@
                 style="color: var(--blue); font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 25px; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Badges
                 & Certificações</span>
               <button class="cartesian-core" style="position: relative; top: auto; left: auto; transform: none;"
-                onclick="openCartesianOverlay()" aria-label="Abrir Matriz">
+                onclick="openGraphView()" aria-label="Abrir Grafo">
                 <div class="core-ring core-ring-1"></div>
                 <div class="core-ring core-ring-2"></div>
                 <div class="core-ring core-ring-3"></div>
-                <div class="core-inner"><i class="fas fa-cube"></i></div>
+                <div class="core-inner"><i class="fas fa-brain"></i></div>
                 <div class="core-pulse"></div>
               </button>
             </div>
@@ -706,35 +711,12 @@
     </section>
 
     <!-- ===== CARTESIAN BADGE MAP (OVERLAY) ===== -->
-    <section id="cartesian-badges"
-      onclick="if(event.target.id === 'cartesian-badges' || event.target.id === 'cartesian-map') closeCartesianOverlay()"
-      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: rgba(2, 6, 23, 0.15); display: none; opacity: 0; transition: opacity 0.6s ease; backdrop-filter: blur(8px);">
-
-      <!-- Botão Fechar -->
-      <button onclick="closeCartesianOverlay()"
-        style="position: absolute; top: 20px; right: 30px; background: transparent; border: none; color: var(--blue); font-size: 2rem; cursor: pointer; z-index: 10000;">
+    <!-- ===== GRAPH VIEW OVERLAY ===== -->
+    <section id="graph-view-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: rgba(2, 6, 23, 0.85); display: none; opacity: 0; transition: opacity 0.4s ease; backdrop-filter: blur(8px);">
+      <button onclick="closeGraphView()" style="position: absolute; top: 20px; right: 30px; background: transparent; border: none; color: var(--blue); font-size: 2rem; cursor: pointer; z-index: 10000;">
         <i class="fas fa-times"></i>
       </button>
-
-      <div class="cartesian-container" id="cartesian-map"
-        style="width: 100%; height: 100%; max-width: none; border-radius: 0; border: none; box-shadow: none;">
-        <!-- Eixos X e Y -->
-        <div class="cartesian-axis-x"></div>
-        <div class="cartesian-axis-y"></div>
-
-        <!-- Rótulos dos Quadrantes -->
-        <div class="quadrant-label q1-label"><i class="fas fa-brain"></i> I.A e Dados</div>
-        <div class="quadrant-label q2-label"><i class="fas fa-desktop"></i> Front-end</div>
-        <div class="quadrant-label q3-label"><i class="fas fa-shield-alt"></i> Cybersegurança</div>
-        <div class="quadrant-label q4-label"><i class="fas fa-server"></i> Back-end</div>
-
-        <!-- Camada de Conexões (SVG) -->
-        <svg id="connections-layer"
-          style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2;"></svg>
-
-        <!-- Container dinâmico das badges -->
-        <div id="badges-layer" style="z-index: 3;"></div>
-      </div>
+      <div id="graph-network-container" style="width: 100%; height: 100%;"></div>
     </section>
 
 
@@ -766,7 +748,43 @@
 
           <div class="carousel-viewport" id="carousel-viewport">
             <div class="carousel-track" id="carousel-track">
-              <!-- PROJETO 1 — Forno & Afeto -->
+              <!-- PROJETO 1 — UniStudy Hub -->
+              <div class="proj-card carousel-slide">
+                <div class="proj-img" style="background:linear-gradient(135deg,#0d1117,#1e1b4b)">
+                  <img loading="lazy" src="src/img/projetos/unistudy.png" alt="UniStudy Hub"
+                    class="proj-cover-img">
+                  <div class="proj-techs">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                      alt="Tailwind CSS">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    <img loading="lazy"
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                      alt="Django" style="filter:brightness(3)">
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-tags">
+                    <span class="tag">React</span><span class="tag">Django DRF</span>
+                    <span class="tag">Tailwind</span><span class="tag">Gamificação</span>
+                  </div>
+                  <div class="proj-title">UniStudy Hub</div>
+                  <p class="proj-desc">Plataforma acadêmica gamificada para conectar estudantes e professores com fóruns
+                    interativos, guildas de estudo com chat em tempo real, quizzes com selos automáticos e sala de foco Pomodoro.
+                  </p>
+                  <div class="proj-links">
+                    <a href="https://github.com/Renan-De-Paula/UniStudy" target="_blank"
+                      class="proj-link gh"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://uni-study-4wyp.vercel.app/login" target="_blank"
+                      class="proj-link demo" style="margin-left:10px;"><i class="fas fa-external-link-alt"></i> Live
+                      Demo</a>
+                  </div>
+                </div>
+              </div>
+              <!-- PROJETO 2 — Forno & Afeto -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#0d1f3c,#1a1040)">
                   <img loading="lazy" src="src/img/projetos/fornoAfetoPedidos.png" alt="Forno & Afeto"
@@ -799,7 +817,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 2 — Show do Milhão -->
+              <!-- PROJETO 3 — Show do Milhão -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#1a0c00,#3d2600)">
                   <img loading="lazy" src="src/img/projetos/showmilhao.png" alt="Show do Milhão" class="proj-cover-img">
@@ -825,7 +843,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 3 — Pantheon Fighters -->
+              <!-- PROJETO 4 — Pantheon Fighters -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#1a0533,#3d0a0a)">
                   <img loading="lazy" src="src/img/projetos/pantheonfighters.png" alt="Pantheon Fighters"
@@ -851,7 +869,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 4 — VacinAPP -->
+              <!-- PROJETO 5 — VacinAPP -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#0c1e35,#1a0c2e)">
                   <img loading="lazy" src="src/img/projetos/vacinApp.png" alt="VacinAPP" class="proj-cover-img">
@@ -883,7 +901,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 5 — Grind Culture -->
+              <!-- PROJETO 6 — Grind Culture -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#111111,#333333)">
                   <img loading="lazy" src="src/img/projetos/grind-Culture.png" alt="Grind Culture"
@@ -915,7 +933,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 6 — Touch Screen Test -->
+              <!-- PROJETO 7 — Touch Screen Test -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#0c1e35,#1a0c2e)">
                   <img loading="lazy" src="src/img/projetos/touchScreen.png" alt="Touch Screen Test"
@@ -947,7 +965,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 7 — Ironforge -->
+              <!-- PROJETO 8 — Ironforge -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#e31c25,#200000)">
                   <img loading="lazy" src="src/img/projetos/ironforge.png" alt="Ironforge Fitness"
@@ -980,7 +998,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 8 — Pokedex -->
+              <!-- PROJETO 9 — Pokedex -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#c42a2a,#8a1a1a)">
                   <img loading="lazy" src="src/img/projetos/pokedex.png" alt="Pokedex" class="proj-cover-img">
@@ -1010,7 +1028,7 @@
                   </div>
                 </div>
               </div>
-              <!-- PROJETO 9 — Metal Zombie -->
+              <!-- PROJETO 10 — Metal Zombie -->
               <div class="proj-card carousel-slide">
                 <div class="proj-img" style="background:linear-gradient(135deg,#3a3a3a,#1c1c1c)">
                   <img loading="lazy" src="src/img/projetos/MetalZombie.png" alt="Metal Zombie" class="proj-cover-img">
@@ -1262,6 +1280,8 @@
   </button>
 
 
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script src="src/js/graph.js" defer></script>
   <script src="src/js/main.js" defer></script>
 
   <!-- Experiencia Modal -->
